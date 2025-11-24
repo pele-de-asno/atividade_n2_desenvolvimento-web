@@ -1,24 +1,24 @@
-# 🚀 MongoDB Dashboard — Node.js + MongoDB + Docker
+# MongoDB Dashboard — Node.js + MongoDB + Docker
 
 Um dashboard moderno, seguro e estiloso para visualizar, editar e manipular documentos diretamente do MongoDB.
 Criado com **Node.js**, **Express**, **EJS**, **Docker** e um tema **dark violeta neon 🔮**.
 
 ---
 
-## 🔥 Recursos principais
+## Recursos principais
 
-* 🔐 Login com autenticação direta no MongoDB
+*    Login com autenticação direta no MongoDB
 * 🟣 Sessão persistente com renovação automática
 * 📊 CRUD completo (Create, Read, Update, Delete)
 * ⏳ Ordenação automática por `recvTime` (decrescente)
-* 🧮 Contagem total de documentos da collection
+*    Contagem total de documentos da collection
 * 🖥 Interface moderna com tema dark + violeta neon
-* 🐳 Totalmente dockerizado
-* 📡 Suporte completo ao FIWARE STH‑Comet / MongoDB Legacy
+*   Totalmente dockerizado
+*   Suporte completo ao FIWARE STH‑Comet / MongoDB Legacy
 
 ---
 
-## 🧠 Arquitetura do Projeto
+##  Arquitetura do Projeto
 
 ```
 projeto_api/
@@ -59,9 +59,9 @@ projeto_api/
 
 ---
 
-## 🐳 Como Rodar com Docker
+##  Como Rodar com Docker
 
-### 🔧 Build da imagem
+###  Build da imagem
 
 ```
 docker build -t fiware-dashboard .
@@ -78,7 +78,7 @@ Acesse em:
 
 ---
 
-## 🧪 Como Rodar Sem Docker
+##  Como Rodar Sem Docker
 
 ```
 npm install
@@ -90,7 +90,7 @@ Acesse:
 
 ---
 
-## 🧬 Estrutura das Views
+##  Estrutura das Views
 
 ### 📊 Dashboard
 
@@ -99,19 +99,19 @@ Acesse:
 * Exibe total de documentos
 * Botões de edição e remoção
 
-### 📝 Formulário de Criação
+###  Formulário de Criação
 
 * Envia: `attrName`, `attrType`, `attrValue`
 * `recvTime` é gerado automaticamente no servidor
 
-### 🔐 Login
+###  Login
 
 * Autentica diretamente no MongoDB via usuário + senha
 * Sessão renovada automaticamente enquanto o usuário navega
 
 ---
 
-## 🧾 API / Fluxo de Dados
+##  API / Fluxo de Dados
 
 O servidor ao autenticar monta a URI:
 
@@ -127,7 +127,7 @@ sth_/_urn:ngsi-ld:Lamp:001_Lamp
 
 ---
 
-## 🧩 Desenvolvimento
+##  Desenvolvimento
 
 ### Criar nova funcionalidade
 
@@ -147,7 +147,3 @@ git commit -m "feat: minha feature"
 ```
 git push origin feature/minha-feature
 ```
-
----
-
----
