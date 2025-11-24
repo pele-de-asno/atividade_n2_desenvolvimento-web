@@ -1,0 +1,106 @@
+<!-- dashboard.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        body {
+            background: #0d0d0d;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            color: #c084fc;
+        }
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: #1a1a1a;
+            box-shadow: 0 0 15px rgba(192, 132, 252, 0.2);
+        }
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #333;
+            text-align: left;
+        }
+        th {
+            background: #131313;
+            color: #c084fc;
+        }
+        tr:hover {
+            background: rgba(192, 132, 252, 0.1);
+        }
+        a {
+            color: #c084fc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-shadow: 0 0 8px #c084fc;
+        }
+        form {
+            width: 90%;
+            margin: 20px auto;
+            display: flex;
+            gap: 10px;
+        }
+        input, button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #1e1e1e;
+            color: #e0e0e0;
+            transition: 0.3s;
+        }
+        input:hover, button:hover {
+            box-shadow: 0 0 10px rgba(192, 132, 252, 0.7);
+        }
+        button {
+            background: #3b0a57;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #4c0c72;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dashboard - Documentos</h1>
+    <h2 style="text-align:center;color:#c084fc;">
+        Total de documentos: <%= total %>
+    </h2>
+
+    <!-- Criação -->
+    <form method="POST" action="/items">
+        <input name="attrName" placeholder="Nome do Atributo" required>
+        <input name="attrType" placeholder="Tipo" required>
+        <input name="attrValue" placeholder="Valor" required>
+        <button type="submit">Criar</button>
+    </form>
+
+    <!-- Tabela -->
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>recvTime</th>
+            <th>Valor</th>
+            <th>Ações</th>
+        </tr>
+
+        <% items.forEach(item => { %>
+            <tr>
+                <td><%= item._id %></td>
+<!--                <td><%= item.recvTime.toISOString() %></td> -->
+                <td><%= item.recvTime ? item.recvTime.toISOString() : "—" %></td>
+                <td><%= item.attrValue %></td>
+                <td>
+                    <a href="/items/edit/<%= item._id %>">Editar</a> |
+                    <a href="/items/delete/<%= item._id %>">Excluir</a>
+                </td>
+            </tr>
+        <% }) %>
+    </table>
+</body>
+</html>

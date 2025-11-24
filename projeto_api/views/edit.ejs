@@ -1,0 +1,71 @@
+<!-- edit.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        body {
+            background: #0d0d0d;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            color: #c084fc;
+        }
+        form {
+            width: 50%;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input, button {
+            padding: 10px;
+            background: #1e1e1e;
+            border: none;
+            border-radius: 5px;
+            color: #e0e0e0;
+            transition: 0.3s;
+        }
+        input:hover, button:hover {
+            box-shadow: 0 0 10px rgba(192, 132, 252, 0.7);
+        }
+        button {
+            background: #3b0a57;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #4c0c72;
+        }
+        a {
+            text-align: center;
+            display: block;
+            margin-top: 20px;
+            color: #c084fc;
+        }
+        a:hover {
+            text-shadow: 0 0 8px #c084fc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Editar Documento</h1>
+
+    <form method="POST" action="/items/edit/<%= item._id %>">
+        <label>Nome do Atributo:</label>
+        <input name="attrName" value="<%= item.attrName %>" required>
+
+        <label>Tipo:</label>
+        <input name="attrType" value="<%= item.attrType %>" required>
+
+        <label>Valor:</label>
+        <input name="attrValue" value="<%= item.attrValue %>" required>
+
+        <button type="submit">Salvar</button>
+    </form>
+
+    <a href="/dashboard">Voltar</a>
+</body>
+</html>
